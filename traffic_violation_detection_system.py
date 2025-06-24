@@ -73,13 +73,11 @@ class Polygons:
             
         return inside
     
-    # Save list of polygons to a file using pickle
     @staticmethod
     def save_polygons(polygons, filename="polygons.pkl"):
         with open(filename, 'wb') as file:
             pickle.dump(polygons, file)
     
-    # Load list of polygons from a file using pickle
     @staticmethod
     def load_polygons(filename="polygons.pkl"):
         with open(filename, 'rb') as file:
@@ -145,7 +143,6 @@ W, H = 1280, 720
 
 s = min(M_w / W, M_h / H) 
 
-# Calculate padding
 p_x = (M_w - s * W) / 2
 p_y = (M_h - s * H)/ 2
 
@@ -447,8 +444,7 @@ class UI(QWidget):
                     raise Exception("Failed to start GStreamer pipeline")
             except Exception as e:
                 print(f"GStreamer pipeline failed: {e}")
-                # Fallback to OpenCV if GStreamer fails
-                #return self.simple_capture.start(self.video_path)
+
                 
         elif self.current_mode == "rpi":
             try:
